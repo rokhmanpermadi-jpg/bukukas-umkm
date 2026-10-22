@@ -24,7 +24,7 @@ jobs:
             echo "KEY_PASS=${{ secrets.KEY_PASS }}" >> $GITHUB_ENV
           else
             keytool -genkeypair -v -keystore $RUNNER_TEMP/release.jks -alias bukukas -keyalg RSA -keysize 2048 -validity 10000 \
-              -storepass bukukas123 -keypass bukukas123 -dname "CN=Buku Kas UMKM, OU=KWT Mawar, O=Pengabdian, L=Kotawaringin Timur, C=ID"
+              -storepass bukukas123 -keypass bukukas123 -dname "CN=Buku Kas UMKM, O=Buku Kas UMKM, C=ID"
             echo "KEYSTORE_PASS=bukukas123" >> $GITHUB_ENV
             echo "KEY_ALIAS=bukukas" >> $GITHUB_ENV
             echo "KEY_PASS=bukukas123" >> $GITHUB_ENV

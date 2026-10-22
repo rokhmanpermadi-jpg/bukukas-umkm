@@ -1,4 +1,4 @@
-package id.kwtmawar.bukukas;
+package id.umkm.bukukas;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     File ex = new File(getCacheDir(), "export"); ex.mkdirs();
                     File f = new File(ex, name);
                     try (FileOutputStream fo = new FileOutputStream(f)) { fo.write(bytes); }
-                    Uri su = FileProvider.getUriForFile(MainActivity.this, "id.kwtmawar.bukukas.files", f);
+                    Uri su = FileProvider.getUriForFile(MainActivity.this, "id.umkm.bukukas.files", f);
                     Intent sh = new Intent(Intent.ACTION_SEND);
                     sh.setType(mime); sh.putExtra(Intent.EXTRA_STREAM, su); sh.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     startActivity(Intent.createChooser(sh, "Bagikan " + name));
