@@ -1,0 +1,34 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'id.kwtmawar.bukukas'
+    compileSdk 34
+    defaultConfig {
+        applicationId "id.kwtmawar.bukukas"
+        minSdk 24
+        targetSdk 34
+        versionCode 2
+        versionName "1.1"
+    }
+    signingConfigs {
+        release {
+            def ks = System.getenv("KEYSTORE_PATH")
+            if (ks != null) {
+                storeFile file(ks)
+                storePassword System.getenv("KEYSTORE_PASS")
+                keyAlias System.getenv("KEY_ALIAS")
+                keyPassword System.getenv("KEY_PASS")
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (System.getenv("KEYSTORE_PATH") != null) signingConfig signingConfigs.release
+        }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.webkit:webkit:1.11.0'
+}
