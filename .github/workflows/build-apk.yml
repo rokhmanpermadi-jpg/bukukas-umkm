@@ -43,7 +43,7 @@ jobs:
       - name: Terbitkan rilis
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ github.run_number }}
-          name: Buku Kas UMKM build ${{ github.run_number }}
+          tag_name: v1.4.${{ github.run_number }}
+          name: Buku Kas UMKM v1.4 (build ${{ github.run_number }})
           files: BukuKasUMKM.apk
           body: "APK Buku Kas UMKM. Unduh BukuKasUMKM.apk, buka di HP Android, izinkan pemasangan dari sumber tidak dikenal bila diminta."
